@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0-M4'
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
     }
 }
 
@@ -19,8 +19,8 @@ repositories {
     mavenCentral()
 }
 
-ext.junitPlatformVersion = '1.0.0-M4'
-ext.jupiterVersion = '5.0.0-M4'
+ext.junitPlatformVersion = '1.0.0'
+ext.jupiterVersion = '5.0.0'
 
 junitPlatform {
     filters {

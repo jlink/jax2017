@@ -11,11 +11,10 @@ public class TinyMethodTestDescriptor extends AbstractTestDescriptor {
     private final Class testClass;
 
     public TinyMethodTestDescriptor(Method testMethod, Class testClass, TinyClassTestDescriptor parent) {
-        super(parent.getUniqueId().append("method", testMethod.getName()), determineDisplayName(testMethod));
+        super(parent.getUniqueId().append("method", testMethod.getName()), determineDisplayName(testMethod), MethodSource.from(testMethod));
         this.testMethod = testMethod;
 		this.testClass = testClass;
 		setParent(parent);
-		setSource(new MethodSource(this.testMethod));
     }
 
 	private static String determineDisplayName(Method testMethod) {

@@ -11,10 +11,9 @@ class TinyClassTestDescriptor extends AbstractTestDescriptor {
 	private final Class<?> testClass;
 
 	public TinyClassTestDescriptor(Class<?> testClass, TestDescriptor parent) {
-		super(parent.getUniqueId().append("class", testClass.getName()), determineDisplayName(testClass));
+		super(parent.getUniqueId().append("class", testClass.getName()), determineDisplayName(testClass), ClassSource.from(testClass));
 		this.testClass = testClass;
 		setParent(parent);
-		setSource(new ClassSource(testClass));
 		addAllChildren();
 	}
 
