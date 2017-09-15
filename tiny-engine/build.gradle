@@ -48,8 +48,3 @@ dependencies {
 	// Only necessary to enable IntelliJ support
 	testRuntime("org.junit.jupiter:junit-jupiter-engine:${jupiterVersion}")
 }
-
-task wrapper(type: Wrapper) {
-	description = 'Generates gradlew[.bat] scripts'
-	gradleVersion = '3.4'
-}
