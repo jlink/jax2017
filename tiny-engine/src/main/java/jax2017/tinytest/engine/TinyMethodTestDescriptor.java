@@ -1,18 +1,20 @@
 package jax2017.tinytest.engine;
 
-import org.junit.platform.engine.TestDescriptor;
-import org.junit.platform.engine.support.descriptor.AbstractTestDescriptor;
-import org.junit.platform.engine.support.descriptor.MethodSource;
+import org.junit.platform.engine.support.descriptor.*;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 public class TinyMethodTestDescriptor extends AbstractTestDescriptor {
     private final Method testMethod;
     private final Class testClass;
 
     public TinyMethodTestDescriptor(Method testMethod, Class testClass, TinyClassTestDescriptor parent) {
-        super(parent.getUniqueId().append("method", testMethod.getName()), determineDisplayName(testMethod), MethodSource.from(testMethod));
-        this.testMethod = testMethod;
+		super( //
+				parent.getUniqueId().append("method", testMethod.getName()), //
+				determineDisplayName(testMethod), //
+				MethodSource.from(testMethod) //
+		);
+		this.testMethod = testMethod;
 		this.testClass = testClass;
 		setParent(parent);
     }

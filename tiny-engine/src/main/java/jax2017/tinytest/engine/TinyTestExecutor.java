@@ -27,8 +27,10 @@ public class TinyTestExecutor {
 		try {
 			testInstance = ReflectionUtils.newInstance(methodTestDescriptor.getTestClass());
 		} catch (Throwable throwable) {
-			String message = String.format("Cannot create instance of class '%s'. May it has no default constructor?",
-					methodTestDescriptor.getTestClass());
+			String message = String.format( //
+					"Cannot create instance of class '%s'. Maybe it has no default constructor?", //
+					methodTestDescriptor.getTestClass() //
+			);
 			return TestExecutionResult.failed(new RuntimeException(message, throwable));
 		}
 		return invokeTestMethod(methodTestDescriptor, testInstance);
@@ -41,8 +43,11 @@ public class TinyTestExecutor {
 			if (success)
 				return TestExecutionResult.successful();
 			else {
-				String message = String.format("Test '%s' failed for instance '%s'", methodTestDescriptor.getDisplayName(),
-						testInstance.toString());
+				String message = String.format( //
+						"Test '%s' failed for instance '%s'", //
+						methodTestDescriptor.getDisplayName(), //
+						testInstance.toString() //
+				);
 				return TestExecutionResult.failed(new AssertionFailedError(message));
 			}
 		} catch (Throwable throwable) {
